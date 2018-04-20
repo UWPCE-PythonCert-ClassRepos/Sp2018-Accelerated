@@ -6,17 +6,28 @@
 Notes for Session 04
 ####################
 
+Instructor: Chris
+
+4/19/2018
+
 A collection of notes to go over in class, to keep things organized.
 
 Lightning Talks
 ===============
 
+Brianna Dean
+
+Aarthi Ravichander
 
 Issues that came up during the week.
 ====================================
 
 Mutable default parameters
 --------------------------
+
+There was a video on this -- any questions about it?
+
+If not then we'll move on...
 
 This is a real "gotcha" in Python. One of you wrote a non-recursive solution to the sum_series problem. It worked great -- EXCEPT if it got called more than once! Any idea what the problem is?
 
@@ -57,18 +68,6 @@ Default Arguments get evaluated **when the function is defined**. So every time 
 
 Let's explore that some more, and some solutions....
 
-``str(input(...))``???
-----------------------
-
-Minor issue, but a number of you have written code like:
-
-.. code-block:: python
-
-    answer = str(input("some prompt > "))
-
-But ``input()`` always returns a string -- no need to wrap a call to ``str()`` around it.
-
-You may have seen code like this on the web, as ``input()`` behaves differently in Python 2.
 
 Recursion in an interactive loop
 --------------------------------
@@ -92,90 +91,44 @@ Let's look at this:
 
 (do a ``git pull upstream master`` if you don't see it.)
 
+Slicing and List labs
+---------------------
 
-Deleting from a list while looping through it
----------------------------------------------
+Any questions?
 
-This may seem like an obvious way to filter a list:
+Let's look at my solutions quickly.
 
-.. code-block:: python
+mailroom
+--------
 
-  for item in a_list:
-      if something:
-          a_list.remove(item)
+Anyone get it done?
 
-But it turns out that removing stuff from a list while looping through can make a mess of things. Let's try it:
+Should we look at my solution -- or wait??
 
-.. code-block:: python
+Lightning Talks:
+----------------
 
-  a_list = list(range(10))
-  print(a_list)
-  # loop to remove everything...
-  for item in a_list:
-      if item: # is it an nonzero number?
-          a_list.remove(item)
-  print(a_list)
+Brianna Dean
 
-Let's run this code, and see what we get.
+Aarthi Ravichander
 
-``examples/session04/deleting_in_loop.py``
+New Material
+============
 
-What if you add stuff to a list while looping?
+Any questions on dictionaries, set or files?
 
-Adding up immutables in loops
------------------------------
+This gets fun now!
 
-Mostly about strings, but it's an issue for numbers, too:
+mailroom part 2
+---------------
 
+How might you use dictionaries in mailroom? If you haven't finished it without dicts, whynot add them now?
 
+trigrams
+--------
 
-In [8]: l
-Out[8]: ['this', 'that', 'the', 'other', 'thing']
+This is a really fun one -- but challenging.
 
-In [9]: sum(l, "")
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-<ipython-input-9-327c710c973b> in <module>()
-----> 1 sum(l, "")
-
-TypeError: sum() can't sum strings [use ''.join(seq) instead]
-
-In [10]: def use_sum(seq):
-    ...:     return sum(seq)
-    ...:
-
-In [11]: def use_loop(seq):
-    ...:     val = 0
-    ...:     for i in seq:
-    ...:         val += i
-    ...:     return val
-    ...:
-
-In [12]: seq = list(range(100))
-
-In [13]: use_sum(seq)
-Out[13]: 4950
-
-In [14]: use_loop(seq)
-Out[14]: 4950
-
-In [15]: seq = list(range(10000))
-
-In [16]: % timeit use_sum(seq)
-10000 loops, best of 3: 73.3 µs per loop
-
-In [17]: % timeit use_loop(seq)
-1000 loops, best of 3: 385 µs per loop
+Let's get a start on it!
 
 
-``if __name__ == "__main__":``
-------------------------------
-
-This can be confusing, but one key note:
-
-Put as little as possible in this block -- the idea is that most of your code can be run / used as a module, and *only* the code that has to be run in a script goes here. Often that is simply something like:
-
-.. code-block:: python
-
-    if __name__ == "__main__":
-        main_function()
