@@ -93,6 +93,9 @@
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Notes for Session 02</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Notes for Session 03</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Notes for Session 04</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Notes for Session 05</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Notes for Session 06</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Notes for Session 07</a></li>
 </ul>
 
             
@@ -158,12 +161,11 @@
             
   <div class="section" id="notes-for-session-10">
 <span id="notes-session10"></span><h1>Notes for Session 10<a class="headerlink" href="#notes-for-session-10" title="Permalink to this headline">¶</a></h1>
+<p>5/10/2018</p>
 <p>A collection of notes to go over in class, to keep things organized.</p>
 <div class="section" id="lightning-talks">
 <h2>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h2>
-<p>Hiroyuki Takechi</p>
-<p>Jacob Olsby</p>
-<p>Larry Beausoleil</p>
+<p>Anyone missed their chance?</p>
 </div>
 <div class="section" id="issues-that-came-up-during-the-week">
 <h2>Issues that came up during the week.<a class="headerlink" href="#issues-that-came-up-during-the-week" title="Permalink to this headline">¶</a></h2>
@@ -175,7 +177,7 @@
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donations</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This way, client code can get the maximum donation without knowing, or caring how the donations are stored in the class.</p>
+<p>This way, client code can get the maximum donation without knowing, or caring, how the donations are stored in the class.</p>
 <p>However, there is no need to create a property to “hide” something that is already part of the public API:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@property</span>
 <span class="k">def</span> <span class="nf">namelength</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -191,22 +193,24 @@
 </div>
 <div class="section" id="the-next-class">
 <h2>The Next Class<a class="headerlink" href="#the-next-class" title="Permalink to this headline">¶</a></h2>
-<p>Next quarter, we’ll finish up the core of the Python language, then go into depth on some of the more advanced features of the language. Finally, we’ll do a bit with using Python with other tools, such as databases.</p>
-<p>Here’s a Tentative Outline:</p>
+<p>Next quarter, you’ll finish up the core of the Python language, then go into depth on some of the more advanced features of the language. Finally, we’ll do a bit with using Python with other tools, such as databases.</p>
+<p>Here’s an Outline:</p>
 <div class="section" id="functional-programming-2">
 <h3>Functional Programming 2<a class="headerlink" href="#functional-programming-2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li>Comprehensions</li>
+<li>Lambda</li>
 <li>Iterators and Iterables</li>
+<li>Generators</li>
 <li>Itertools</li>
-<li>Functools</li>
 </ul>
 </div>
 <div class="section" id="functional-programming-3">
 <h3>Functional Programming 3<a class="headerlink" href="#functional-programming-3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Closures and Currying</li>
-<li>Generators</li>
-<li>Coroutines</li>
+<li>Itertools</li>
+<li>Functools</li>
 </ul>
 </div>
 <div class="section" id="advanced-python-language-constructs">
@@ -214,8 +218,16 @@
 <ul class="simple">
 <li>Decorators</li>
 <li>Context Managers</li>
-<li>Meta Programming</li>
-<li>Meta Classes</li>
+<li>Recursion</li>
+</ul>
+</div>
+<div class="section" id="metaprogramming">
+<h3>Metaprogramming<a class="headerlink" href="#metaprogramming" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Namespaces</li>
+<li>Introspection</li>
+<li>Metaclasses</li>
+<li>Class Decorators</li>
 </ul>
 </div>
 <div class="section" id="debugging-logging">
@@ -231,6 +243,7 @@
 <ul class="simple">
 <li>Linting</li>
 <li>Coverage</li>
+<li>The unittest Module</li>
 <li>Fixtures</li>
 <li>Mocking</li>
 </ul>
@@ -239,9 +252,7 @@
 <h3>Relational Databases<a class="headerlink" href="#relational-databases" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>SQL</li>
-<li>ORMs
-* Normalization
-* Schema</li>
+<li>ORMs: PeeWee</li>
 <li>Sqlite</li>
 <li>Postgresql</li>
 </ul>
@@ -272,28 +283,12 @@
 <li>Threading and Multiprocessing</li>
 <li>Message Queues</li>
 <li>Async</li>
-<li>Celery</li>
 </ul>
-</div>
-</div>
-<div class="section" id="functional-programming">
-<h2>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h2>
-<p>The readings were a little, shall we say, sparse.</p>
-<p>So I’ll go over them now.</p>
-<div class="section" id="lambda">
-<h3>lambda<a class="headerlink" href="#lambda" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="map-filter-reduce">
-<h3>map, filter, reduce<a class="headerlink" href="#map-filter-reduce" title="Permalink to this headline">¶</a></h3>
-<p>Want to try it with mailroom?</p>
-<p><a class="reference external" href="https://uwpce-pythoncert.github.io/PythonCertDevel/exercises/mailroom-fp.html#exercise-mailroom-fp" title="(in PythonCert v4.0)"><span>Mailroom - Functional</span></a></p>
 </div>
 </div>
 <div class="section" id="end-of-quarter">
 <h2>End of Quarter:<a class="headerlink" href="#end-of-quarter" title="Permalink to this headline">¶</a></h2>
 <p>We will review PRs through Sunday.</p>
-<p>I will hold office hours one last time this Sunday as well.</p>
-<p><strong>Anyone up for Celebratory Beer?</strong></p>
 </div>
 </div>
 
