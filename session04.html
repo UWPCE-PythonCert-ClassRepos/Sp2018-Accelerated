@@ -36,6 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="IntroToPython 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Notes for Session 05" href="session05.html"/>
         <link rel="prev" title="Notes for Session 03" href="session03.html"/> 
 
   
@@ -110,6 +111,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Notes for Session 05</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Notes for Session 06</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Notes for Session 07</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Notes for Session 08</a></li>
 </ul>
 
             
@@ -190,7 +195,7 @@
 <p>There was a video on this – any questions about it?</p>
 <p>If not then we’ll move on…</p>
 <p>This is a real “gotcha” in Python. One of you wrote a non-recursive solution to the sum_series problem. It worked great – EXCEPT if it got called more than once! Any idea what the problem is?</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_series</span><span class="p">(</span><span class="n">nth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sequence</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_series</span><span class="p">(</span><span class="n">nth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sequence</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a list of sums given a seed and return the Nth number.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -202,11 +207,11 @@
 <p>So this uses the logic of starting out with the first two values in the series, and then looping to build up the series from there.</p>
 <p>And [0, 1] is set as a default to start the series off – the start of the Fibonacci series.  So if you pass in only one argument, you should get the Fibonacci number:</p>
 <p>Remember that the start of the Fibonacci series is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="o">...</span>
 </pre></div>
 </div>
 <p>What happens when you run this code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">sum_series</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">sum_series</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="mi">3</span>
 </pre></div>
 </div>
@@ -223,7 +228,7 @@ Out[22]: 1
 <h3>Recursion in an interactive loop<a class="headerlink" href="#recursion-in-an-interactive-loop" title="Permalink to this headline">¶</a></h3>
 <p>not a great idea!</p>
 <p>you can do something like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mainloop</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mainloop</span><span class="p">():</span>
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">ans</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;A question &gt; &quot;</span><span class="p">)</span>
         <span class="o">....</span>
@@ -232,8 +237,8 @@ Out[22]: 1
 </pre></div>
 </div>
 <p>Let’s look at this:</p>
-<p><code class="docutils literal"><span class="pre">examples/session04/recursive_mainloop.py</span></code></p>
-<p>(do a <code class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></code> if you don’t see it.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">examples/session04/recursive_mainloop.py</span></code></p>
+<p>(do a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></code> if you don’t see it.)</p>
 </div>
 <div class="section" id="slicing-and-list-labs">
 <h3>Slicing and List labs<a class="headerlink" href="#slicing-and-list-labs" title="Permalink to this headline">¶</a></h3>
@@ -276,6 +281,8 @@ Out[22]: 1
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="session05.html" class="btn btn-neutral float-right" title="Notes for Session 05" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session03.html" class="btn btn-neutral" title="Notes for Session 03" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

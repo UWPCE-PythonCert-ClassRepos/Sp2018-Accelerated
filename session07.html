@@ -36,6 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="IntroToPython 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Notes for Session 08" href="session08.html"/>
         <link rel="prev" title="Notes for Session 06" href="session06.html"/> 
 
   
@@ -111,6 +112,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Notes for Session 08</a></li>
 </ul>
 
             
@@ -196,32 +198,32 @@
 <div class="section" id="mutating-vs-re-assigning">
 <h3>Mutating vs. re-assigning<a class="headerlink" href="#mutating-vs-re-assigning" title="Permalink to this headline">¶</a></h3>
 <p>I’ve seen code like this in a few trigram solutions:</p>
-<p><code class="docutils literal"><span class="pre">output</span> <span class="pre">=</span> <span class="pre">output</span> <span class="pre">+</span> <span class="pre">[follower]</span></code></p>
-<p>(<code class="docutils literal"><span class="pre">output</span></code> is a list of strings, follower is a single string)</p>
+<p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">=</span> <span class="pre">output</span> <span class="pre">+</span> <span class="pre">[follower]</span></code></p>
+<p>(<code class="docutils literal notranslate"><span class="pre">output</span></code> is a list of strings, follower is a single string)</p>
 <p>What it does is add a new item to a list.</p>
 <p>But is that an efficient way to do that?</p>
-<p>If you are adding one element to a list – <code class="docutils literal"><span class="pre">append()</span></code> is the way to go.</p>
-<p><code class="docutils literal"><span class="pre">output_list.append(random_trigram_followers)</span></code></p>
+<p>If you are adding one element to a list – <code class="docutils literal notranslate"><span class="pre">append()</span></code> is the way to go.</p>
+<p><code class="docutils literal notranslate"><span class="pre">output_list.append(random_trigram_followers)</span></code></p>
 <p>Using addition works fine, but it’s creating a whole new list (actually: <em>two</em> new lists) just to throw it away again.</p>
 <p>And if you are adding another list of objects, you want to use extend().</p>
 <p>With this code:</p>
-<p><code class="docutils literal"><span class="pre">output</span> <span class="pre">=</span> <span class="pre">output</span> <span class="pre">+</span> <span class="pre">[follower]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">=</span> <span class="pre">output</span> <span class="pre">+</span> <span class="pre">[follower]</span></code></p>
 <p>This is what happens:</p>
 <ol class="arabic simple">
-<li>Create a one-element list with <code class="docutils literal"><span class="pre">follower</span></code> in it.</li>
-<li>Create a new list with the contents of <code class="docutils literal"><span class="pre">output</span></code> and that just created list.</li>
-<li>Re-assign the name <code class="docutils literal"><span class="pre">output</span></code> to that new list.</li>
-<li>Throw away the original list <code class="docutils literal"><span class="pre">output</span></code> was bound to, and the temporary list created for <code class="docutils literal"><span class="pre">follower</span></code>.</li>
+<li>Create a one-element list with <code class="docutils literal notranslate"><span class="pre">follower</span></code> in it.</li>
+<li>Create a new list with the contents of <code class="docutils literal notranslate"><span class="pre">output</span></code> and that just created list.</li>
+<li>Re-assign the name <code class="docutils literal notranslate"><span class="pre">output</span></code> to that new list.</li>
+<li>Throw away the original list <code class="docutils literal notranslate"><span class="pre">output</span></code> was bound to, and the temporary list created for <code class="docutils literal notranslate"><span class="pre">follower</span></code>.</li>
 </ol>
 <p>That’s a LOT of overhead!</p>
-<p>Be cognizant of when you are mutating (changing) an object vs. creating a new one and assigning it to the same name. When you do assignment (<code class="docutils literal"><span class="pre">=</span></code>) you are probably creating a new object – is that what you want?</p>
-<p><code class="docutils literal"><span class="pre">+=</span></code> is different – it is the “in_place” operator, so:</p>
-<p><code class="docutils literal"><span class="pre">a_list</span> <span class="pre">+=</span> <span class="pre">another_list</span></code></p>
+<p>Be cognizant of when you are mutating (changing) an object vs. creating a new one and assigning it to the same name. When you do assignment (<code class="docutils literal notranslate"><span class="pre">=</span></code>) you are probably creating a new object – is that what you want?</p>
+<p><code class="docutils literal notranslate"><span class="pre">+=</span></code> is different – it is the “in_place” operator, so:</p>
+<p><code class="docutils literal notranslate"><span class="pre">a_list</span> <span class="pre">+=</span> <span class="pre">another_list</span></code></p>
 <p>does not create an new list – it adds to the original list “in place” – it is identical to:</p>
-<p><code class="docutils literal"><span class="pre">a_list.extend(another_list)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">a_list.extend(another_list)</span></code></p>
 <p>And it is an efficient operation.</p>
-<p>The trik is that the “augmented assignment” operators, like <code class="docutils literal"><span class="pre">+=</span></code> <strong>do</strong> create new object when used with an immutable:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">tup1</span> <span class="o">=</span> <span class="n">tup2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<p>The trik is that the “augmented assignment” operators, like <code class="docutils literal notranslate"><span class="pre">+=</span></code> <strong>do</strong> create new object when used with an immutable:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">tup1</span> <span class="o">=</span> <span class="n">tup2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">tup1</span> <span class="ow">is</span> <span class="n">tup2</span>
 <span class="gh">Out[5]: </span><span class="go">True</span>
@@ -239,7 +241,7 @@
 </pre></div>
 </div>
 <p>Contrast this with (mutable) lists:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">list1</span> <span class="o">=</span> <span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">list1</span> <span class="o">=</span> <span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">In [12]: </span><span class="n">list1</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
@@ -259,14 +261,14 @@
 <li>Efficient in-place operations on mutables (partly to support numpy)</li>
 <li>quick and easy incrementing of values, in particular integers:</li>
 </ol>
-<p><code class="docutils literal"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code></p>
 <p>And no one wanted to add <strong>two</strong> new sets of operators.</p>
 <p><a class="reference external" href="https://www.python.org/dev/peps/pep-0203/">https://www.python.org/dev/peps/pep-0203/</a></p>
 </div>
 <div class="section" id="a-little-code-refactoring">
 <h3>A Little Code Refactoring<a class="headerlink" href="#a-little-code-refactoring" title="Permalink to this headline">¶</a></h3>
 <p>After making a few comments on a block of mailroom code, I decided it might be instructive to review and refactor it live with the class. The code can be found in the class repo in:</p>
-<p><code class="docutils literal"><span class="pre">/examples/Session07/refactor.py</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/examples/Session07/refactor.py</span></code></p>
 <p>That code works now – so the first thing we’re going to do is make tests for it. Then we can refactor away and know it still works.</p>
 <p>Any other questions/issue before we get into classes?</p>
 </div>
@@ -296,6 +298,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="session08.html" class="btn btn-neutral float-right" title="Notes for Session 08" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session06.html" class="btn btn-neutral" title="Notes for Session 06" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
