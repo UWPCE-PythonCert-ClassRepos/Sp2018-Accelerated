@@ -105,6 +105,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#office-hours">Office hours</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#grades">Grades</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#merge-conflicts">Merge conflicts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#last-2-assignments">Last 2 assignments</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#issues-that-came-up-during-the-week">Issues that came up during the week.</a><ul>
@@ -215,6 +216,11 @@
 <h3>Merge conflicts<a class="headerlink" href="#merge-conflicts" title="Permalink to this headline">¶</a></h3>
 <p>We’ve got a number of merge conflicts in PRs, which keep us from completing/merging those PRs. We need to fix them in person, so I’ll contact each affected individual and try to sort this out. I also should have mentioned in last class that everyone should copy the example code files to their own student directory, not working directly on those files (in the example directory) that are pulled from upstream… My fault if merge conflicts were on that directory. I still saw strange merge conflicts, so we’ll be fixing them in person in this class during the break.</p>
 </div>
+<div class="section" id="last-2-assignments">
+<h3>Last 2 assignments<a class="headerlink" href="#last-2-assignments" title="Permalink to this headline">¶</a></h3>
+<p>Feel free to combine the last 2 assignments (OO mailroom &amp; functional mailroom) and submit just one PR. If your single submission includes both OO-redesigned mailroom and required functional features, we’ll mark both assignments as complete for such a submission.</p>
+<p>Also feel free to build on the solution to the previous mailroom assignment that’s posted at <a class="reference external" href="https://github.com/UWPCE-PythonCert-ClassRepos/Sp2018-Accelerated/blob/master/solutions/Lesson06/mailroom2.py">https://github.com/UWPCE-PythonCert-ClassRepos/Sp2018-Accelerated/blob/master/solutions/Lesson06/mailroom2.py</a> .</p>
+</div>
 </div>
 <div class="section" id="issues-that-came-up-during-the-week">
 <h2>Issues that came up during the week.<a class="headerlink" href="#issues-that-came-up-during-the-week" title="Permalink to this headline">¶</a></h2>
@@ -243,9 +249,9 @@
 <div class="section" id="supplements-to-functional-programming-in-python-from-hosung">
 <h2>Supplements to Functional Programming in Python (from Hosung)<a class="headerlink" href="#supplements-to-functional-programming-in-python-from-hosung" title="Permalink to this headline">¶</a></h2>
 <p>Searched the web for some good references on the topic, and found some (seemingly) good ones that I liked. We’ll go over some examples from them:</p>
-<p><a class="reference external" href="https://anandology.com/python-practice-book/functional-programming.html">https://anandology.com/python-practice-book/functional-programming.html</a> : Really liked the trace and the memoize decorations.</p>
+<p><a class="reference external" href="https://anandology.com/python-practice-book/functional-programming.html">https://anandology.com/python-practice-book/functional-programming.html</a> : Really liked the trace and the memoize decorations. See how the original <code class="docutils literal notranslate"><span class="pre">`fib(n)`</span></code> can be inefficient and also see why using the trace decoration and how it can be improved usng the memoize (not a typo!) decoration. Note that recursion is not much considered as functional, though functional programming relies heavily on recursion. Also note that decorators will be covered in more detail in the second course of the program, and they may not be considered pure functional (closures, mutating environment, …).</p>
 <p><a class="reference external" href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming</a> : A seemingly good read on functional programming principles with examples in Python</p>
-<p><a class="reference external" href="http://www.cs.rpi.edu/~sibel/csci1100/fall2017/lecture_notes/lec24_functional.html">http://www.cs.rpi.edu/~sibel/csci1100/fall2017/lecture_notes/lec24_functional.html</a> : Seemingly good examples on lambda</p>
+<p><a class="reference external" href="http://www.cs.rpi.edu/~sibel/csci1100/fall2017/lecture_notes/lec24_functional.html">http://www.cs.rpi.edu/~sibel/csci1100/fall2017/lecture_notes/lec24_functional.html</a> : Seemingly good examples on lambda. An example problem: Given a list of points in 2D coordinates, return a list of the points in the order of distance from the origin (<code class="docutils literal notranslate"><span class="pre">`(0,0)`</span></code>). What about in the order of distance from any point <code class="docutils literal notranslate"><span class="pre">`(x,y)`</span></code>?</p>
 </div>
 <div class="section" id="the-next-class">
 <h2>The Next Class<a class="headerlink" href="#the-next-class" title="Permalink to this headline">¶</a></h2>
